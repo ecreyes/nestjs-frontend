@@ -3,9 +3,16 @@ import { useEffect } from "react";
 import MainLayout from "../layouts/MainLayout";
 import Router from 'next/router'
 import Header from "../components/Header";
-import { Box, Flex, Text, Badge } from "@chakra-ui/react";
+import { Alert, AlertIcon, Box } from "@chakra-ui/react";
+import Task from '../components/Task'
+import { useTasks } from "../hooks/tasks-hook";
 
 const Dashboard: NextPage = () => {
+    const {data, loading, error} = useTasks()
+
+    useEffect(()=> {
+        console.log({data})
+    },[data])
 
     useEffect(()=> {
         const token = localStorage.getItem('token')
@@ -19,16 +26,15 @@ const Dashboard: NextPage = () => {
             <MainLayout>
                 <Header></Header>
                 <Box height={'100%'} mt={2} overflowY={'auto'} scrollBehavior={'auto'}>
-                    <Flex flexDirection={'row'} justify={'space-between'} shadow={'md'} minH={20} marginX={2} my={4}>
-                        <Flex flexDirection={'column'} justify={'space-evenly'} align={'baseline'} ml={2}>
-                            <Text fontSize='md' fontWeight={'bold'} textTransform={'uppercase'}>Nombre de la tarea</Text>
-                            <Badge colorScheme='green' my={2} >Completada</Badge>
-                        </Flex>
-                        <Flex direction={'column'} justify={'space-evenly'} ml={4}>
-                            <div>update</div>
-                            <div>delete</div>
-                        </Flex>
-                    </Flex>
+                    {data?.tasks.length === 0 && 
+                        <Alert status='info'>
+                          <AlertIcon />
+                          No tienes tareas creadas 😭
+                        </Alert>
+                    }
+                    {data?.tasks.length >0 &&
+                        data.tasks.map((task: any)=> <Task key={task.id} id={task.id} name={task.name} completed={task.completed}></Task>)
+                    }
                 </Box>
             </MainLayout>
         </>
