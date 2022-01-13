@@ -1,7 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import NextLink from "next/link"
 import MainLayout from '../layouts/MainLayout'
-
+import { Heading, Text, Flex, Spacer } from '@chakra-ui/react'
+import ButtonRokket from '../components/ButtonRokket'
 const Home: NextPage = () => {
 
   return (
@@ -12,7 +14,19 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainLayout>
-        <h1>Home</h1>
+        <Flex direction='column' height='100%' paddingY={[40,20]} paddingX={[10,2]}>
+          <Heading as='h1'>Aplicación de tareas</Heading>
+          <Text fontSize='xl' mt={2}>
+            Bienvenid@ a la aplicación de tareas, esta app es solo con fines educativos.
+          </Text>
+          <Spacer/>
+          <NextLink href='/login'>
+            <ButtonRokket colorScheme='blue' mb={4}>Iniciar sesión</ButtonRokket>
+          </NextLink>
+          <NextLink href='/signup'>
+            <ButtonRokket colorScheme='blue'>Registrarse</ButtonRokket>
+          </NextLink>
+        </Flex>
       </MainLayout>
     </>
   )
