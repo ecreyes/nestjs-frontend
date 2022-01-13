@@ -14,7 +14,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainLayout>
-        <Flex direction='column' height='100%' paddingY={[40,20]} paddingX={[10,2]}>
+        <Flex direction='column' height='100%' paddingY={[40,20]} paddingX={[10,8]}>
           <Heading as='h1'>Aplicación de tareas</Heading>
           <Text fontSize='xl' mt={2}>
             Bienvenid@ a la aplicación de tareas, esta app es solo con fines educativos.
