@@ -11,10 +11,6 @@ const Dashboard: NextPage = () => {
     const {data, loading, error} = useTasks()
 
     useEffect(()=> {
-        console.log({data})
-    },[data])
-
-    useEffect(()=> {
         const token = localStorage.getItem('token')
         if(!token){
             Router.push('/')
