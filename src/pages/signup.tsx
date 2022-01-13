@@ -78,7 +78,7 @@ const SignUp: NextPage = () => {
                 justify='space-evenly'
             >
                 <Center>
-                    <Heading as='h1' size={'md'} marginTop={[null, -8]}>Bienvenid@!</Heading>
+                    <Heading as='h1' marginTop={[null, -8]}>Bienvenid@!</Heading>
                 </Center>
                 <Box>
                     <FormControl marginBottom={4} isRequired isDisabled={loading}>
