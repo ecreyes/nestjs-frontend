@@ -1,8 +1,5 @@
 import {
-    Box, Flex, FormControl,
-    FormLabel, Input, Center,
-    Heading, Alert, AlertIcon,
-    AlertTitle, AlertDescription,
+    Flex,
 } from '@chakra-ui/react'
 const MainLayout: React.FC = ({children}) => {
     return (

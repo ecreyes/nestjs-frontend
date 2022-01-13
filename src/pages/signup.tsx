@@ -11,6 +11,7 @@ import { useSignUp } from "../hooks/signup-hook"
 import { ApolloError } from "@apollo/client"
 import Router from 'next/router'
 import MainLayout from "../layouts/MainLayout"
+import ButtonBack from "../components/ButtonBack"
 
 
 const SignUp: NextPage = () => {
@@ -60,6 +61,7 @@ const SignUp: NextPage = () => {
 
     return (
         <MainLayout>
+            <ButtonBack></ButtonBack>
             {showAlert && <Alert status='error' my={4} variant='top-accent'>
                 <AlertIcon />
                 <Flex direction={'column'}>
