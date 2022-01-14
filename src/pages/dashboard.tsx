@@ -9,13 +9,14 @@ import { useTasks } from "../hooks/tasks-hook";
 import TaskModal from "../components/TaskModal";
 
 const Dashboard: NextPage = () => {
-    const {data, loading, error} = useTasks()
+    const {data, loading, error, refetch} = useTasks()
 
     useEffect(()=> {
         const token = localStorage.getItem('token')
         if(!token){
             Router.push('/')
         }
+        refetch()
     },[])
 
     return (

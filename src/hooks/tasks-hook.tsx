@@ -39,8 +39,8 @@ mutation($id: String!, $input: UpdateTaskInput!){
 `
 
 export const useTasks = () => {
-    const { data, error, loading } = useQuery(TASKS)
-    return { data, error, loading }
+    const { data, error, loading, refetch } = useQuery(TASKS)
+    return { data, error, loading, refetch }
 }
 
 export const useDeleteTask = () => {
