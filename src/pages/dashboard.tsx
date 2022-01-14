@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import { Alert, AlertIcon, Box } from "@chakra-ui/react";
 import Task from '../components/Task'
 import { useTasks } from "../hooks/tasks-hook";
+import TaskModal from "../components/TaskModal";
 
 const Dashboard: NextPage = () => {
     const {data, loading, error} = useTasks()
@@ -21,6 +22,7 @@ const Dashboard: NextPage = () => {
         <>
             <MainLayout>
                 <Header></Header>
+                <TaskModal type="create"></TaskModal>
                 <Box height={'100%'} mt={2} overflowY={'auto'} scrollBehavior={'auto'}>
                     {data?.tasks.length === 0 && 
                         <Alert status='info'>
