@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 
 const SIGN_UP = gql`
-mutation($input: SignUpInput!) {
+mutation signup($input: SignUpInput!) {
   signUp( input: $input){
     id
     name

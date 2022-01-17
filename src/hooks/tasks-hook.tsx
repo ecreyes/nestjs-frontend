@@ -1,7 +1,7 @@
 import { gql, useMutation, useQuery } from "@apollo/client";
 
 const TASKS = gql`
-query {
+query tasks{
   tasks{
       id
       name
@@ -10,7 +10,7 @@ query {
 }`
 
 const DELETE_TASK = gql`
-mutation($id: String!) {
+mutation deleteTask($id: String!) {
   deleteTask( id: $id){
       id
       name
@@ -19,7 +19,7 @@ mutation($id: String!) {
 `
 
 const CREATE_TASK = gql`
-mutation($input: CreateTaskInput!) {
+mutation createTask($input: CreateTaskInput!) {
     createTask(input: $input){
         id
         name
@@ -29,7 +29,7 @@ mutation($input: CreateTaskInput!) {
 `
 
 const UPDATE_TASK = gql`
-mutation($id: String!, $input: UpdateTaskInput!){
+mutation updateTask($id: String!, $input: UpdateTaskInput!){
     updateTask(id:$id, input:$input){
         id
         name
